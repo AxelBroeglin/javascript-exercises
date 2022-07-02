@@ -1,18 +1,14 @@
-const removeFromArray = function(array, removedNumber) {
+const removeFromArray = function(...args) {
     
-    //Créer un array des valeurs après array puis boucle forEach (puis for ?) pour comparer avec array de base.
-    let arr = Array.from(removedNumber)
-    arr.forEach(element => {
-        for( let i = 0; i < array.length; i++){ 
-    
-            if ( array[i] === removedNumber) { 
-                array.splice(i, 1); 
-                return array
-            }
-        }
-});
+ const array = args[0];
+ const newArray = [];
+ array.forEach((item) => {
+    if (!args.includes(item)) {
+        newArray.push(item);
+    }
+ });
+return newArray
 
-   
 }
 // Do not edit below this line
 module.exports = removeFromArray;
